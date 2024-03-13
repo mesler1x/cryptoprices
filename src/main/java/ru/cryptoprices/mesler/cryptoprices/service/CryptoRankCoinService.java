@@ -33,7 +33,7 @@ public class CryptoRankCoinService implements CoinService{
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://api.cryptorank.io/v1/currencies/?api_key=";
         url += apiKey;
-        url += "&limit=5";
+        url += "&limit=20";
         String response = restTemplate.getForObject(url, String.class);
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(response);
@@ -44,7 +44,6 @@ public class CryptoRankCoinService implements CoinService{
             coin.setSymbol(node.get("symbol").asText());
             coin.setRank(node.get("rank").asInt());
             coin.setPrice(node.get("values").get("USD").get("price").asDouble());
-            coin.setCategory(node.get("category").asText());
             coin.setName(node.get("name").asText());
             coin.setType(node.get("type").asText());
             coinList.add(coin);

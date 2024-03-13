@@ -11,7 +11,6 @@ public class Coin {
     String symbol;
     int rank;
     double price;
-    String category;
     String name;
     String type;
 }
