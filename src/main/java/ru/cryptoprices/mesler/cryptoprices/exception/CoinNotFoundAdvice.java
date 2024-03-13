@@ -17,6 +17,7 @@ public class CoinNotFoundAdvice {
     public Map<String, String> exceptionHandler(CoinNotFoundException coinNotFoundException){
         Map<String, String> errorMap = new HashMap<>();
         errorMap.put("errorMessage", coinNotFoundException.getMessage());
+
         return errorMap;
     }
 }
